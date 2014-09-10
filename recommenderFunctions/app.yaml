@@ -1,0 +1,3 @@
+handlers:
+- url: /recommender/.*
+  script: recommenderFunctions.dataAcquisition.app

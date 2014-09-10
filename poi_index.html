@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>XML POI inserter</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <script>
+
+      function handleClick()
+      {
+        alert("XML unos uspesan");
+        $.post("poi_input", { xml_input: document.getElementById("xml_input").value,
+                                category_id: document.getElementById("category_id").value });
+        return false;
+      }
+
+    </script>
+</head>
+<body>
+<p><b>XML POI inserter</b></p>
+<textarea id="xml_input" rows="30" cols="100" name="comment" form="usr">
+</textarea>
+
+<form action="javascript:handleClick();" id="usr">
+    <b>Category id:</b>
+    <input id="category_id" type="text">
+    <input name="Submit"  type="submit" value="Upload" />
+</form>
+
+</body>
+</html>
