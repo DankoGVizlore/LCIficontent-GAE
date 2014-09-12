@@ -5,7 +5,6 @@ LCIficontent-GAE
 
 Server side application comprises the following modules:
 - activity recognition
-- recommender service 
 - filtering module
 - supporting database
 
@@ -22,9 +21,6 @@ This module returns two information:
 - recognised location ( restaurant, hotel, cafe, etc. ) by using SSID. 
 
 Output from activity recognition module is represented as tuple in Python ( activity, location )
-
-## Recommender service
-Recommender service is implemented using content based filtering. When device sends request for recommendation, this service is used to make prediction, what the users are interested in and what not. In the current version, users can _like_ or _dislike_ some Point Of Interest ( POI ). This info is then stored in the database. Recommender service uses this data to make assumptions about users interests. Result of recommendation process is table containing all POIs in the city of Novi Sad and there _predicted_ ratings.
 
 ## Filtering module
 Filtering module uses table of predicted ratings provided by recommender service and predicted activity provided by activity recognition service. When some device sends request for recommendation, mobile application expect five recommended POIs. To filter out only five POIs, this module sorts the POIs based on their predicted ratings. Based on current activity, module use some radius in which it recommends POIs ( standing-200m, walking-400m, using transportation-1800m). POIs which are not in this radius are strpiped. Finally, from the remaining POIs module returns five with best predicted ratings.
